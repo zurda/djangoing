@@ -12,11 +12,13 @@
     <h1><a href="/">Home</a></h1>
   </header>
 
-  <article>
-    <h2><a href="">Example post</a></h2>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat ducimus, illo, suscipit libero voluptatem totam ea et nisi odit doloribus repellat minima natus sit deleniti iure cupiditate assumenda eos. Sunt?</p>
-    <time>published: 14.06.2014, 12:14</time>
-  </article>
+  {% for post in posts %}
+    <article>
+      <h2><a href="">{{ post.title }}</a></h2>
+      <p>{{ post.text|linebreaksbr }}</p>
+      <time>published by {{ post.author }} at: {{ post.published_date }}</time>
+    </article>
+  {% endfor %}
 
 </body>
 </html>
