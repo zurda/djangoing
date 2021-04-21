@@ -1,9 +1,14 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
   <title>Djangoing</title>
 </head>
 
@@ -12,13 +17,15 @@
     <h1><a href="/">Home</a></h1>
   </header>
 
-  {% for post in posts %}
-    <article>
-      <h2><a href="">{{ post.title }}</a></h2>
-      <p>{{ post.text|linebreaksbr }}</p>
-      <time>published by {{ post.author }} at: {{ post.published_date }}</time>
-    </article>
-  {% endfor %}
+  <main class="container">
+    {% for post in posts %}
+      <article class="post">
+        <h2><a href="">{{ post.title }}</a></h2>
+        <p>{{ post.text|linebreaksbr }}</p>
+        <time class="date">published by {{ post.author }} at: {{ post.published_date }}</time>
+      </article>
+    {% endfor %}
+  </main>
 
 </body>
 </html>

@@ -1,0 +1,20 @@
+.container {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+a {
+    color: seagreen;
+}
+
+a:hover {
+    color: darkgreen;
+}
+
+.post {
+  background-color: whitesmoke;
+  margin: 2rem 0;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  box-shadow: 2px 2px lightgray;
+}
