@@ -15,9 +15,11 @@
     <header class="page-header">
       <div class="container">
         <h1><a href="/">Home</a></h1>
-        <a href="{% url 'post_new' %}">
-          New post
-        </a>
+        {% if user.is_authenticated %}
+          <a href="{% url 'post_new' %}">
+            New post
+          </a>
+        {% endif %}
       </div>
     </header>
     <main class="container">
