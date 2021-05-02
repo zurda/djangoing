@@ -39,3 +39,8 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+def user_posts(request):
+    user_posts = Post.objects.filter(published_date__lte=timezone.now()).filter(author=request.user).order_by('-published_date')
+
+    return render(request, 'blog/user_posts.html', {'user_posts': user_posts})

@@ -1,0 +1,14 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% if user_posts %}
+    {% for post in user_posts %}
+      <article class="post">
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+        <time class="date">Published at {{ post.published_date }}</time>
+      </article>
+    {% endfor %}
+  {% else %}
+      <p>You have no posts.</p>
+  {% endif %}
+{% endblock %}
