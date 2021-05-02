@@ -16,13 +16,20 @@
       <div class="container">
         <h1><a href="/">Home</a></h1>
         {% if user.is_authenticated %}
-          {% if user.is_superuser %}
-            <a href="{% url 'admin:index' %}">Admin panel</a>
+          <div>
+            <p>Hi {{ user }} 👋</p>
+            <p>
+            {% if user.is_superuser %}
+              <a href="{% url 'admin:index' %}">Admin panel</a>
+              |
+            {% endif %}
+            <a href="{% url 'user_posts' %}">My posts</a>
             |
-          {% endif %}
-          <a href="{% url 'post_new' %}">
-            New post
-          </a>
+            <a href="{% url 'post_new' %}">
+              New post
+            </a>
+          </p>
+          </div>
         {% endif %}
       </div>
     </header>
